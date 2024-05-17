@@ -8,4 +8,40 @@
         <mat-icon>search</mat-icon>
       </button>
     </mat-form-field>
+    <div class="tabela">
+        <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>CPF</th>
+                <th>Endereço</th>
+                <th>Celular</th>
+                <th>Código da Escola</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let aluno of dataSource.connect() | async">
+                <td>{{ aluno.iCodAluno }}</td>
+                <td>{{ aluno.sNome }}</td>
+                <td>{{ aluno.dNascimento }}</td>
+                <td>{{ aluno.sCPF }}</td>
+                <td>{{ aluno.sEndereco }}</td>
+                <td>{{ aluno.sCelular }}</td>
+                <td>{{ aluno.iCodEscola }}</td>
+                <td>
+                  <button mat-icon-button color="black" aria-label="Editar aluno">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button mat-icon-button color="black" aria-label="Deletar aluno">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    
 </div>

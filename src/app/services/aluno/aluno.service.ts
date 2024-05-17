@@ -11,7 +11,7 @@ export class AlunoService {
 
   constructor(private http:HttpClient) { }
   private apiUrl = 'https://localhost:7101/api/Aluno/listar';
-  getMaterias(): Observable<Aluno[]>{
+  getAlunos(): Observable<Aluno[]>{
     return this.http.get<Aluno[]>(`${this.apiUrl}`);
   }
 }
