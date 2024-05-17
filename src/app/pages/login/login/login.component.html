@@ -1,0 +1,21 @@
+<div class="login">
+  <h1 style="color: white;">Faça o login</h1>
+  <form class="example-form">
+
+    <mat-form-field>
+      <mat-label>Entre com seu usuário</mat-label>
+      <input matInput placeholder="pat@example.com" [formControl]="user" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Enter your password</mat-label>
+      <input matInput  [formControl]="password" [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <div class="botao">
+      <button type="button" (click)="logar()">Entrar</button>
+    </div>
+  </form>
+</div>
