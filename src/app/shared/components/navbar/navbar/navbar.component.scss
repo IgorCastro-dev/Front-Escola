@@ -29,6 +29,13 @@ img {
   height: auto;
 }
 
+a{
+  color: aliceblue;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
 
 @media (min-width: 768px) {
   .navbar {
@@ -51,10 +58,11 @@ img {
     display: flex;
     justify-content: space-between;
   }
-  span{
+  a{
     color: aliceblue;
     align-items: center;
     display: flex;
     justify-content: center;
+    text-decoration: none;
   }
 }

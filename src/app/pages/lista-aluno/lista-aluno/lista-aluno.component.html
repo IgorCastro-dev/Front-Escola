@@ -33,7 +33,7 @@
                 <td>{{ aluno.sCelular }}</td>
                 <td>{{ aluno.iCodEscola }}</td>
                 <td>
-                  <button mat-icon-button color="black" aria-label="Editar aluno">
+                  <button mat-icon-button color="black" aria-label="Editar aluno" (click)="goToAtualizaAluno(aluno.iCodAluno)">
                     <mat-icon>edit</mat-icon>
                   </button>
                   <button mat-icon-button color="black" aria-label="Deletar aluno">
@@ -44,7 +44,7 @@
             </tbody>
           </table>
     </div>
-    <button class="button-add" mat-raised-button color="accent">
+    <button class="button-add" mat-raised-button color="accent" (click)="goToAddAluno()">
       Adicionar Aluno <mat-icon>add</mat-icon>
     </button>  
   </div>

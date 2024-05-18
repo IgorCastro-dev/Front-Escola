@@ -1,17 +1,20 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlunoService } from '../../../services/aluno/aluno.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-salva-aluno',
-  templateUrl: './salva-aluno.component.html',
-  styleUrl: './salva-aluno.component.scss'
+  selector: 'app-atualiza-aluno',
+  templateUrl: './atualiza-aluno.component.html',
+  styleUrl: './atualiza-aluno.component.scss'
 })
-export class SalvaAlunoComponent {
+
+export class AtualizaAlunoComponent {
+  alunoId!: number;
   formGroup: FormGroup;
   constructor(
     private fb: FormBuilder,
+    private route: ActivatedRoute,
     private router: Router,
     private alunoService: AlunoService
   ){
@@ -24,11 +27,17 @@ export class SalvaAlunoComponent {
       dNascimento: [,[Validators.required]],
       sCelular: ['(99) 9 9999-9999', [Validators.required]]
     });
-  }
 
-  cadastrarAluno() {
-    const alunoNovo = this.formGroup.value;
-    this.alunoService.postAluno(alunoNovo).subscribe({
+    this.route.params.subscribe(params => {
+      const alunoId = params['id'];
+      this.alunoId = alunoId;
+    });
+  }
+  
+
+  atualizaAluno() {
+    const alunoAtualizado = this.formGroup.value;
+    this.alunoService.putAluno(this.alunoId,alunoAtualizado).subscribe({
       next: () => {
         this.router.navigate(['lista-aluno']);
       },

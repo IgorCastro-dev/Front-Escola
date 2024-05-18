@@ -24,4 +24,14 @@ export class AlunoService {
     return this.http.post(`${this.apiUrl}/salvar`,alunoDto);
   }
 
+  putAluno(alunoId: number, alunoAtualizado:AlunoDto){
+    const url = `${this.apiUrl}/${alunoId}`;
+    return this.http.put(url,alunoAtualizado);
+  }
+
+  updateMateria(materiaId: number,materiaAtualizada:any){
+    const url = `${this.apiUrl}/${materiaId}`;
+    return this.http.put(url,materiaAtualizada);
+  }
+
 }

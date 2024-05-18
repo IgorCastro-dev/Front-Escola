@@ -6,7 +6,7 @@
 
     <div class="nav-tela-cheia">
       <div class="caminhos">
-        <span><mat-icon>badge</mat-icon>Aluno</span>
+        <span><a href="/lista-aluno"><mat-icon>badge</mat-icon>Aluno</a></span>
         <span><mat-icon>mail</mat-icon>Escola</span>
       </div>
       <button class="logout">
@@ -18,7 +18,7 @@
     <div class="menu">
       <button mat-button [matMenuTriggerFor]="menu">Menu</button>
       <mat-menu #menu="matMenu">
-          <span mat-menu-item><mat-icon>badge</mat-icon>Aluno</span>
+          <span mat-menu-item><a href="/lista-aluno"><mat-icon>badge</mat-icon>Aluno</a></span>
           <span mat-menu-item><mat-icon>mail</mat-icon>Escola</span>
           <button mat-menu-item >
             <mat-icon>logout</mat-icon>
