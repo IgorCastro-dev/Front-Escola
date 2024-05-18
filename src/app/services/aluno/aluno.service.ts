@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Aluno } from '../../Model/Aluno';
+import { AlunoDto } from '../../Model/AlunoDto';
 
 
 @Injectable({
@@ -18,4 +19,9 @@ export class AlunoService {
   getAlunosByNameOrCpf(data_aluno:string):Observable<Aluno[]>{
     return this.http.get<Aluno[]>(`${this.apiUrl}/buscar/${data_aluno}`);
   }
+
+  postAluno(alunoDto:AlunoDto){
+    return this.http.post(`${this.apiUrl}/salvar`,alunoDto);
+  }
+
 }

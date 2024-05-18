@@ -1,4 +1,4 @@
-export interface Aluno {
+export interface AlunoDto {
     iCodAluno: number;
     sNome :string;
     dNascimento: any;
