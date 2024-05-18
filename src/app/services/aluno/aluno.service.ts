@@ -29,9 +29,4 @@ export class AlunoService {
     return this.http.put(url,alunoAtualizado);
   }
 
-  updateMateria(materiaId: number,materiaAtualizada:any){
-    const url = `${this.apiUrl}/${materiaId}`;
-    return this.http.put(url,materiaAtualizada);
-  }
-
 }
