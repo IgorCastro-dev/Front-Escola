@@ -6,7 +6,9 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)},
   { path: 'lista-aluno', loadChildren: () => import('./pages/lista-aluno/lista-aluno.module').then(m => m.ListaAlunoModule)},
   { path: 'cadastra-aluno', loadChildren: () => import('./pages/salva-aluno/salva-aluno.module').then(m => m.SalvaAlunoModule)},
-  { path: 'atualiza-aluno/:id', loadChildren: () => import('./pages/atualiza-aluno/atualiza-aluno.module').then(m => m.AtualizaAlunoModule)}
+  { path: 'atualiza-aluno/:id', loadChildren: () => import('./pages/atualiza-aluno/atualiza-aluno.module').then(m => m.AtualizaAlunoModule)},
+  { path: 'lista-escola', loadChildren: () => import('./pages/lista-escola/lista-escola.module').then(m => m.ListaEscolaModule)},
+  
 ];
 
 @NgModule({

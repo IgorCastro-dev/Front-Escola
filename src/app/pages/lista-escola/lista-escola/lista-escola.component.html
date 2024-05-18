@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="example-container">
+    <div class="lista-escola">
+    <h1>Área de listagem de Escola</h1>
+    <mat-form-field class="pesquisar">
+      <mat-label>Entre com a Descrição</mat-label>
+      <input matInput #inputData>
+      <button type="button" mat-icon-button matSuffix (click)="buscarDescricao(inputData.value)">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+    <div class="tabela">
+        <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let escola of dataSource.connect() | async">
+                <td>{{ escola.iCodEscola }}</td>
+                <td>{{ escola.sDescricao }}</td>
+                <td>
+                  <button mat-icon-button color="black" aria-label="Editar aluno" (click)="goToAtualizaEscola(escola.iCodEscola)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button mat-icon-button color="black" aria-label="Deletar aluno">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <button class="button-add" mat-raised-button color="accent" (click)="goToAddAluno()">
+      Adicionar Escola <mat-icon>add</mat-icon>
+    </button>  
+  </div>
+</div>
