@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="cadastra-aluno">
+    <form class="example-form" [formGroup]="formGroup">
+  
+      <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput name="inputName" required formControlName="nome">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>CPF</mat-label>
+        <input matInput name="inputName" required formControlName="cpf">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Endereço</mat-label>
+        <input matInput name="inputName" required formControlName="endereco">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>IdEscola</mat-label>
+        <input matInput name="inputName" required formControlName="idEscola">
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" mask="DD/MM/YYYY" type="date" formControlName="nascimento">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Celular</mat-label>
+        <input matInput mask="(00) 0 0000-0000" type="tel" name="inputCel" required  formControlName="celular">
+      </mat-form-field>
+
+      <button class="button-add" mat-raised-button color="accent">
+        Adicionar Aluno <mat-icon>add</mat-icon>
+      </button>
+
+    </form>
+  </div>
+</div>
+
