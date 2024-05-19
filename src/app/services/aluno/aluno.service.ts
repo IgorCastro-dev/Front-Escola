@@ -20,6 +20,10 @@ export class AlunoService {
     return this.http.get<Aluno[]>(`${this.apiUrl}/buscar/${data_aluno}`);
   }
 
+  getAlunoById(data_aluno:number):Observable<Aluno>{
+    return this.http.get<Aluno>(`${this.apiUrl}/buscarById/${data_aluno}`);
+  }
+
   postAluno(alunoDto:AlunoDto){
     return this.http.post(`${this.apiUrl}/salvar`,alunoDto);
   }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlunoService } from '../../../services/aluno/aluno.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Aluno } from '../../../Model/Aluno';
 
 @Component({
   selector: 'app-atualiza-aluno',
@@ -34,6 +35,18 @@ export class AtualizaAlunoComponent {
     });
   }
   
+  ngOnInit(){
+    this.alunoService.getAlunoById(this.alunoId).subscribe((aluno: Aluno) => {
+      this.formGroup.patchValue({
+        sNome: aluno.sNome,
+        sCpf: aluno.sCPF,
+        sEndereco: aluno.sEndereco,
+        dNascimento: aluno.dNascimento,
+        sCelular: aluno.sCelular,
+        idEscola: aluno.iCodEscola
+      });
+    });
+  }
 
   atualizaAluno() {
     const alunoAtualizado = this.formGroup.value;
