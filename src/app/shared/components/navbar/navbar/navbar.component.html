@@ -6,10 +6,10 @@
 
     <div class="nav-tela-cheia">
       <div class="caminhos">
-        <span><a href="/lista-aluno"><mat-icon>face</mat-icon>Aluno</a></span>
-        <span><a href="/lista-escola"><mat-icon>school</mat-icon>Escola</a></span>
+        <span><a href="/lista-aluno"><mat-icon class="face">face</mat-icon>Aluno</a></span>
+        <span><a href="/lista-escola"><mat-icon class="school">school</mat-icon>Escola</a></span>
       </div>
-      <button class="logout">
+      <button mat-menu-item class="logout" (click)="sair()">
         <mat-icon>logout</mat-icon>
         <span>Sair</span>
       </button>
@@ -20,7 +20,7 @@
       <mat-menu #menu="matMenu">
           <span mat-menu-item><a href="/lista-aluno"><mat-icon>face</mat-icon>Aluno</a></span>
           <span mat-menu-item><a href="/lista-escola"><mat-icon>school</mat-icon>Escola</a></span>
-          <button mat-menu-item >
+          <button mat-menu-item (click)="sair()">
             <mat-icon>logout</mat-icon>
             <span>Sair</span>
           </button>

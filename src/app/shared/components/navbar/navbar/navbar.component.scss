@@ -42,6 +42,23 @@ a{
     max-width: 70%;
   }
 
+  .face{
+    padding-right: 8px;
+  }
+
+  .school{
+    padding-right: 8px;
+  }
+
+  span{
+    align-items: center;
+    display: flex;
+  }
+
+  .logout{
+    width: auto;
+  }
+
   .menu{
     display: none;
   }
