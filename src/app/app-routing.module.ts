@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'cadastra-aluno', loadChildren: () => import('./pages/salva-aluno/salva-aluno.module').then(m => m.SalvaAlunoModule)},
   { path: 'atualiza-aluno/:id', loadChildren: () => import('./pages/atualiza-aluno/atualiza-aluno.module').then(m => m.AtualizaAlunoModule)},
   { path: 'lista-escola', loadChildren: () => import('./pages/lista-escola/lista-escola.module').then(m => m.ListaEscolaModule)},
-  
+  { path: 'cadastra-escola', loadChildren: () => import('./pages/salva-escola/salva-escola.module').then(m => m.SalvaEscolaModule)}
+
 ];
 
 @NgModule({

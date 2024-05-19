@@ -1,0 +1,15 @@
+.example-form {
+    display: flex;
+    flex-direction: column;
+    line-height: 100px;
+    width:100%;
+    max-width: 500px;
+  }
+
+  .cadastra-escola {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+  }
