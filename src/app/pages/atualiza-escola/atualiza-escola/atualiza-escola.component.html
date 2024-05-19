@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="atualiza-escola">
+    <form class="example-form" [formGroup]="formGroup">
+
+      <mat-form-field>
+        <mat-label>Descrição</mat-label>
+        <input matInput name="inputName" required formControlName="sDescricao">
+      </mat-form-field>
+
+      <button class="button-add" mat-raised-button color="accent" (click)=" atualizarEscola() ">
+        Adicionar Escola <mat-icon>add</mat-icon>
+      </button>
+
+    </form>
+  </div>
+</div>
+

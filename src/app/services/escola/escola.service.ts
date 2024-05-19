@@ -27,4 +27,8 @@ export class EscolaService {
     const url = `${this.apiUrl}/${escolaId}`;
     return this.http.put(url,escolaAtualizada);
   }
+
+  getEscolaById(escolaId:number):Observable<Escola>{
+    return this.http.get<Escola>(`${this.apiUrl}/buscarById/${escolaId}`);
+  }
 }
