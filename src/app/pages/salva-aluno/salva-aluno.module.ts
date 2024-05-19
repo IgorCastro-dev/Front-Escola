@@ -5,6 +5,8 @@ import { SalvaAlunoRoutingModule } from './salva-aluno-routing.module';
 import { SalvaAlunoComponent } from './salva-aluno/salva-aluno.component';
 import { MaterialModule } from '../../shared/material/material.module';
 import { NavbarModule } from '../../shared/components/navbar/navbar.module';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+
 @NgModule({
   declarations: [
     SalvaAlunoComponent
@@ -13,7 +15,11 @@ import { NavbarModule } from '../../shared/components/navbar/navbar.module';
     CommonModule,
     SalvaAlunoRoutingModule,
     MaterialModule,
-    NavbarModule
-  ]
+    NavbarModule,
+    NgxMaskDirective
+  ],
+  providers: [
+    provideNgxMask()
+]
 })
 export class SalvaAlunoModule { }
