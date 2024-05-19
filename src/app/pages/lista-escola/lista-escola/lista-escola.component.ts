@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class ListaEscolaComponent {
   escola!: Observable<Escola[]>; 
   dataSource: MatTableDataSource<Escola> = new MatTableDataSource<Escola>();
-  constructor(private escolaService: EscolaService,private router: Router,) {
+  constructor(private escolaService: EscolaService,private router: Router) {
     this.escola = this.escolaService.getEscolas().pipe(
       catchError(error => {
         console.log(error);
