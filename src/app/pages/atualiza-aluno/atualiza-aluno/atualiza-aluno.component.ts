@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlunoService } from '../../../services/aluno/aluno.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Aluno } from '../../../Model/Aluno';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-atualiza-aluno',
@@ -17,7 +19,8 @@ export class AtualizaAlunoComponent {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private alunoService: AlunoService
+    private alunoService: AlunoService,
+    private dialog: MatDialog
   ){
 
     this.formGroup = this.fb.group({
@@ -55,9 +58,18 @@ export class AtualizaAlunoComponent {
         this.router.navigate(['lista-aluno']);
       },
       error: (error) => {
-        console.log(error)
+        if(error.error.title == null){
+          this.openError("Erro ao atualizar o aluno: "+error)
+        }else{
+          this.openError("Erro ao atualizar o aluno: Algum campo inválido")
+        }
       },
     });
 }
 
+openError(errorMsg: string) {
+  this.dialog.open(ErrorDialogComponent, {
+    data: errorMsg
+  });
+}
 }

@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EscolaService } from '../../../services/escola/escola.service';
 import { Escola } from '../../../Model/Escola';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-atualiza-escola',
@@ -16,7 +18,8 @@ export class AtualizaEscolaComponent {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private escolaService: EscolaService
+    private escolaService: EscolaService,
+    private dialog: MatDialog
   ){
 
     this.formGroup = this.fb.group({
@@ -44,10 +47,19 @@ export class AtualizaEscolaComponent {
         this.router.navigate(['lista-escola']);
       },
       error: (error) => {
-        console.log(error)
+        if(error.error.title == null){
+          this.openError("Erro ao atualizar a escola: "+error)
+        }else{
+          this.openError("Erro ao atualizar a escola: Algum campo inválido")
+        }
       },
     });
 }
 
+openError(errorMsg: string) {
+  this.dialog.open(ErrorDialogComponent, {
+    data: errorMsg
+  });
+}
 
 }
