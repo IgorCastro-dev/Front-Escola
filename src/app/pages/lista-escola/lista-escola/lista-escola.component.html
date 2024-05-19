@@ -23,10 +23,10 @@
                 <td>{{ escola.iCodEscola }}</td>
                 <td>{{ escola.sDescricao }}</td>
                 <td>
-                  <button mat-icon-button color="black" aria-label="Editar aluno" (click)="goToAtualizaEscola(escola.iCodEscola)">
+                  <button mat-icon-button color="black" aria-label="Editar escola" (click)="goToAtualizaEscola(escola.iCodEscola)">
                     <mat-icon>edit</mat-icon>
                   </button>
-                  <button mat-icon-button color="black" aria-label="Deletar aluno">
+                  <button mat-icon-button color="black" aria-label="Deletar escola" (click)="deletaEscola(escola.iCodEscola)">
                     <mat-icon>delete</mat-icon>
                   </button>
                 </td>
@@ -34,7 +34,7 @@
             </tbody>
           </table>
     </div>
-    <button class="button-add" mat-raised-button color="accent" (click)="goToAddAluno()">
+    <button class="button-add" mat-raised-button color="accent" (click)="goToAddEscola()">
       Adicionar Escola <mat-icon>add</mat-icon>
     </button>  
   </div>

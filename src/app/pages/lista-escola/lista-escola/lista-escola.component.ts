@@ -28,7 +28,7 @@ export class ListaEscolaComponent {
     });
   }
 
-  goToAddAluno(){
+  goToAddEscola(){
     this.router.navigate(['cadastra-escola']);
   }
 
@@ -49,4 +49,9 @@ export class ListaEscolaComponent {
     this.router.navigate(['atualiza-escola', escolaId]);
   };
   
+  deletaEscola(escolaId: number){
+    this.escolaService.deletaEscola(escolaId).subscribe(() => {
+      this.dataSource.data = this.dataSource.data.filter(escola => escola.iCodEscola !== escolaId);
+    })
+  }
 }

@@ -31,4 +31,8 @@ export class EscolaService {
   getEscolaById(escolaId:number):Observable<Escola>{
     return this.http.get<Escola>(`${this.apiUrl}/buscarById/${escolaId}`);
   }
+
+  deletaEscola(escolaId: number){
+    return this.http.delete(`${this.apiUrl}/${escolaId}`)
+  }
 }

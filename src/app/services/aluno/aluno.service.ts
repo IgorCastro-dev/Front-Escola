@@ -33,4 +33,8 @@ export class AlunoService {
     return this.http.put(url,alunoAtualizado);
   }
 
+  deletaAluno(alunoId: number){
+    return this.http.delete(`${this.apiUrl}/${alunoId}`)
+  }
+
 }

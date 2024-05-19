@@ -50,5 +50,9 @@ export class ListaAlunoComponent implements AfterViewInit {
     this.router.navigate(['atualiza-aluno', alunoId]);
   };
   
-  
+  deletaAluno(alunoId: number){
+    this.alunoService.deletaAluno(alunoId).subscribe(() => {
+      this.dataSource.data = this.dataSource.data.filter(aluno => aluno.iCodAluno !== alunoId);
+    })
+  }
 }
