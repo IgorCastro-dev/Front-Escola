@@ -14,12 +14,7 @@ export class ListaEscolaComponent {
   escola!: Observable<Escola[]>; 
   dataSource: MatTableDataSource<Escola> = new MatTableDataSource<Escola>();
   constructor(private escolaService: EscolaService,private router: Router) {
-    this.escola = this.escolaService.getEscolas().pipe(
-      catchError(error => {
-        console.log(error);
-        return of([]);
-      })
-    );
+    this.escola = this.escolaService.getEscolas();
   }
   
   ngAfterViewInit() {

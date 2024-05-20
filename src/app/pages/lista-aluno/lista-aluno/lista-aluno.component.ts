@@ -15,12 +15,7 @@ export class ListaAlunoComponent implements AfterViewInit {
   aluno!: Observable<Aluno[]>; 
   dataSource: MatTableDataSource<Aluno> = new MatTableDataSource<Aluno>();
   constructor(private alunoService: AlunoService,private router: Router,) {
-    this.aluno = this.alunoService.getAlunos().pipe(
-      catchError(error => {
-        console.log(error);
-        return of([]);
-      })
-    );
+    this.aluno = this.alunoService.getAlunos();
   }
   
   ngAfterViewInit() {
@@ -34,12 +29,7 @@ export class ListaAlunoComponent implements AfterViewInit {
   }
 
   buscarNomeOuCpf(data_aluno: string) {
-    this.aluno = this.alunoService.getAlunosByNameOrCpf(data_aluno).pipe(
-      catchError(error => {
-        console.error(error);
-        return of([]);
-      })
-    );
+    this.aluno = this.alunoService.getAlunosByNameOrCpf(data_aluno);
     
     this.aluno.subscribe(alunos => {
       this.dataSource.data = alunos;
