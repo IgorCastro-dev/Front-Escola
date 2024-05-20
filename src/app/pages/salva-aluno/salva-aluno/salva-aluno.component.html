@@ -23,12 +23,14 @@
 
       <mat-form-field>
         <mat-label>Escola</mat-label>
-        <mat-select formControlName="iCodEscola">
-          @for (option of escolas; track option) {
-            <mat-option [value]="option.iCodEscola">{{ option.sDescricao }}</mat-option>
-          }
+        <mat-select formControlName="iCodEscola" *ngIf="hasEscolas; else noEscolas">
+          <mat-option *ngFor="let option of escolas" [value]="option.iCodEscola">{{ option.sDescricao }}</mat-option>
         </mat-select>
       </mat-form-field>
+
+      <ng-template #noEscolas>
+        <mat-error class="error-message">Adicione uma escola antes</mat-error>
+      </ng-template>
       
       <mat-form-field appearance="fill">
         <mat-label>Data de nascimento</mat-label>

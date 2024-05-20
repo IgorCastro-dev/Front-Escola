@@ -15,6 +15,7 @@ import { firstValueFrom } from 'rxjs';
   styleUrl: './salva-aluno.component.scss'
 })
 export class SalvaAlunoComponent implements OnInit{
+  hasEscolas: boolean = true;
   formGroup!: FormGroup;
   escolas: Escola[] = [];
   get isFormValid(){
@@ -42,9 +43,10 @@ export class SalvaAlunoComponent implements OnInit{
     });
   }
 
-  pegarEscolas(){
-    firstValueFrom(this.escolaService.getEscolas())
-      .then(resp => this.escolas = resp)
+  async pegarEscolas(){
+    const resp = await firstValueFrom(this.escolaService.getEscolas());
+      this.escolas = resp;
+      this.hasEscolas = this.escolas.length > 0;
   }
 
   cadastrarAluno() {
