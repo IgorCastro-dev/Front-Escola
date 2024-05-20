@@ -10,7 +10,9 @@ const routes: Routes = [
   { path: 'atualiza-aluno/:id', loadChildren: () => import('./pages/atualiza-aluno/atualiza-aluno.module').then(m => m.AtualizaAlunoModule),canActivate:[guardGuard]},
   { path: 'lista-escola', loadChildren: () => import('./pages/lista-escola/lista-escola.module').then(m => m.ListaEscolaModule),canActivate:[guardGuard]},
   { path: 'cadastra-escola', loadChildren: () => import('./pages/salva-escola/salva-escola.module').then(m => m.SalvaEscolaModule),canActivate:[guardGuard]},
-  { path: 'atualiza-escola/:id', loadChildren: () => import('./pages/atualiza-escola/atualiza-escola.module').then(m => m.AtualizaEscolaModule),canActivate:[guardGuard]}
+  { path: 'atualiza-escola/:id', loadChildren: () => import('./pages/atualiza-escola/atualiza-escola.module').then(m => m.AtualizaEscolaModule),canActivate:[guardGuard]},
+  {path: '404', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule),canActivate:[guardGuard]},
+  {path: '**', redirectTo: '/404'}
 
 ];
 

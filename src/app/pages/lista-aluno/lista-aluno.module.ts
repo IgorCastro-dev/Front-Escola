@@ -5,6 +5,7 @@ import { ListaAlunoRoutingModule } from './lista-aluno-routing.module';
 import { ListaAlunoComponent } from './lista-aluno/lista-aluno.component';
 import { NavbarModule } from '../../shared/components/navbar/navbar.module';
 import { MaterialModule } from '../../shared/material/material.module';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 
 @NgModule({
@@ -15,7 +16,11 @@ import { MaterialModule } from '../../shared/material/material.module';
     CommonModule,
     ListaAlunoRoutingModule,
     NavbarModule,
-    MaterialModule
-  ]
+    MaterialModule,
+    NgxMaskDirective
+  ],
+  providers: [
+    provideNgxMask()
+]
 })
 export class ListaAlunoModule { }

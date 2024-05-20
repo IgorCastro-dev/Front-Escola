@@ -5,6 +5,7 @@ import { AtualizaAlunoRoutingModule } from './atualiza-aluno-routing.module';
 import { AtualizaAlunoComponent } from './atualiza-aluno/atualiza-aluno.component';
 import { MaterialModule } from '../../shared/material/material.module';
 import { NavbarModule } from '../../shared/components/navbar/navbar.module';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 
 @NgModule({
@@ -15,7 +16,11 @@ import { NavbarModule } from '../../shared/components/navbar/navbar.module';
     CommonModule,
     AtualizaAlunoRoutingModule,
     MaterialModule,
-    NavbarModule
-  ]
+    NavbarModule,
+    NgxMaskDirective
+  ],
+  providers: [
+    provideNgxMask()
+]
 })
 export class AtualizaAlunoModule { }

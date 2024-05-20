@@ -5,6 +5,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Aluno } from '../../../Model/Aluno';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog/error-dialog.component';
+import { Escola } from '../../../Model/Escola';
+import { EscolaService } from '../../../services/escola/escola.service';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-atualiza-aluno',
@@ -15,21 +18,26 @@ import { ErrorDialogComponent } from '../../../shared/components/error-dialog/er
 export class AtualizaAlunoComponent {
   alunoId!: number;
   formGroup: FormGroup;
+  escolas: Escola[] = [];
+  get isFormValid(){
+    return !this.formGroup.valid;
+  }
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private alunoService: AlunoService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private escolaService: EscolaService
   ){
 
     this.formGroup = this.fb.group({
       sNome: [,[Validators.required]],
-      sCpf: [,[Validators.required]],
-      idEscola: [,[Validators.required]],
+      sCpf: [,[Validators.required,Validators.minLength(11)]],
+      iCodEscola: [,[Validators.required]],
       sEndereco: [,[Validators.required]],
       dNascimento: [,[Validators.required]],
-      sCelular: ['(99) 9 9999-9999', [Validators.required]]
+      sCelular: ['(99) 9 9999-9999', [Validators.required,Validators.minLength(11)]]
     });
 
     this.route.params.subscribe(params => {
@@ -37,8 +45,10 @@ export class AtualizaAlunoComponent {
       this.alunoId = alunoId;
     });
   }
-  
+
+
   ngOnInit(){
+    this.pegarEscolas()
     this.alunoService.getAlunoById(this.alunoId).subscribe((aluno: Aluno) => {
       this.formGroup.patchValue({
         sNome: aluno.sNome,
@@ -46,9 +56,14 @@ export class AtualizaAlunoComponent {
         sEndereco: aluno.sEndereco,
         dNascimento: aluno.dNascimento,
         sCelular: aluno.sCelular,
-        idEscola: aluno.iCodEscola
+        iCodEscola: aluno.iCodEscola
       });
     });
+  }
+
+  pegarEscolas(){
+    firstValueFrom(this.escolaService.getEscolas())
+      .then(resp => this.escolas = resp)
   }
 
   atualizaAluno() {

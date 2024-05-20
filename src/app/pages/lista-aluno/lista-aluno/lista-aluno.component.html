@@ -27,7 +27,7 @@
               <tr *ngFor="let aluno of dataSource.connect() | async">
                 <td>{{ aluno.iCodAluno }}</td>
                 <td>{{ aluno.sNome }}</td>
-                <td>{{ aluno.dNascimento }}</td>
+                <td>{{ aluno.dNascimento | date:'dd/MM/yyyy' }}</td>
                 <td>{{ aluno.sCPF }}</td>
                 <td>{{ aluno.sEndereco }}</td>
                 <td>{{ aluno.sCelular }}</td>
